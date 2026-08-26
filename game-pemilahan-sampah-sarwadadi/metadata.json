@@ -1,6 +1,0 @@
-{
-  "name": "Game Pemilahan Sampah Sarwadadi",
-  "description": "Web game simulasi 2D pixel art edukasi pemilahan sampah organik, anorganik, dan B3 serta ekonomi sirkular 3R di Desa Sarwadadi.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
