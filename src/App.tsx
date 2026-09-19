@@ -234,7 +234,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="w-full text-center py-3 text-[10px] text-slate-500 font-pixel border-t border-[#1e2a20] bg-[#0f1410]/80">
-        © 2026 Edukasi Pemilahan Sampah & TPS 3R Desa Sarwadadi • Kurikulum Merdeka Ekonomi Sirkular
+        © 2026 Edukasi Pemilahan Sampah & TPS 3R Desa Sarwadadi • Muhammad Afrizal Azhari
       </footer>
     </div>
   );
