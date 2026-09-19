@@ -69,20 +69,6 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
 
   const topThree = entries.slice(0, 3);
 
-  const handleClearAll = () => {
-    soundManager.playWrong();
-    const emptyList = leaderboardManager.clearLeaderboard();
-    setEntries(emptyList);
-    setShowClearConfirm(false);
-  };
-
-  const handleRestoreDefault = () => {
-    soundManager.playCoin();
-    const defaultList = leaderboardManager.resetToDefault();
-    setEntries(defaultList);
-    setShowDefaultConfirm(false);
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-xs animate-in fade-in">
       <div className="relative w-full max-w-2xl pixel-box rounded-xl p-4 sm:p-6 text-slate-100 shadow-2xl border-4 border-[#1e2a20] max-h-[92vh] flex flex-col animate-in zoom-in-95 overflow-hidden">
@@ -239,10 +225,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
                 Mainkan game dan tuntaskan level untuk mencatat namamu sebagai Duta Lingkungan Desa Sarwadadi!
               </p>
               <button
-                onClick={handleRestoreDefault}
                 className="mt-2 pixel-btn pixel-btn-amber px-3 py-1.5 rounded font-pixel text-[10px]"
               >
-                🔄 Muat Contoh Data Siswa
               </button>
             </div>
           ) : (
@@ -307,60 +291,11 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
           )}
         </div>
 
-        {/* Footer info & database reset options */}
+        {/* Footer info & Close */}
         <div className="mt-3 pt-2.5 border-t border-[#3d4d3f] flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 shrink-0">
-          <div className="flex items-center gap-2">
-            {!showClearConfirm && !showDefaultConfirm ? (
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setShowClearConfirm(true)}
-                  className="text-[9px] sm:text-[10px] text-slate-400 hover:text-rose-400 underline font-pixel"
-                  title="Kosongkan seluruh data skor"
-                >
-                  🗑️ Hapus Database
-                </button>
-                <span className="text-slate-600">•</span>
-                <button
-                  onClick={() => setShowDefaultConfirm(true)}
-                  className="text-[9px] sm:text-[10px] text-slate-400 hover:text-yellow-400 underline font-pixel"
-                  title="Kembalikan data default"
-                >
-                  🔄 Reset Contoh
-                </button>
-              </div>
-            ) : showClearConfirm ? (
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-rose-400 text-[10px] font-pixel">Hapus semua data?</span>
-                <button
-                  onClick={handleClearAll}
-                  className="px-2 py-0.5 bg-rose-800 hover:bg-rose-700 text-white rounded text-[9px] font-pixel"
-                >
-                  Ya, Hapus
-                </button>
-                <button
-                  onClick={() => setShowClearConfirm(false)}
-                  className="px-2 py-0.5 bg-slate-700 hover:bg-slate-600 text-white rounded text-[9px] font-pixel"
-                >
-                  Batal
-                </button>
-              </div>
-            ) : (
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-amber-300 text-[10px] font-pixel">Muat data contoh?</span>
-                <button
-                  onClick={handleRestoreDefault}
-                  className="px-2 py-0.5 bg-amber-700 hover:bg-amber-600 text-white rounded text-[9px] font-pixel"
-                >
-                  Ya, Muat
-                </button>
-                <button
-                  onClick={() => setShowDefaultConfirm(false)}
-                  className="px-2 py-0.5 bg-slate-700 hover:bg-slate-600 text-white rounded text-[9px] font-pixel"
-                >
-                  Batal
-                </button>
-              </div>
-            )}
+          <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-pixel">
+            <span className="text-emerald-400">●</span>
+            <span>Data skor tersimpan otomatis di perangkat</span>
           </div>
 
           <div className="flex items-center gap-2 ml-auto">
